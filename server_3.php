@@ -1,8 +1,19 @@
 <?php
+$server[0]["name"] = "CRM Yourpay";
+$server[0]["ip"] = "";
+$server[0]["user"] = "serveradm";
+$server[0]["pass"] = "";
+//-------------------------------- Server 3 ------------------------------------
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+        $connection_server_3 = ssh2_connect('', 22);
+        ssh2_auth_password($connection_server_3, 'serveradm', '');
 
+        $stream_dfih_server_3 = ssh2_exec($connection_server_3, 'df -ih');
+        stream_set_blocking($stream_dfih_server_3, true);
+        $output_dfih_server_3 = stream_get_contents($stream_dfih_server_3);
+
+        $stream_dfh_server_3 = ssh2_exec($connection_server_3, 'df -h');
+        stream_set_blocking($stream_dfh_server_3, true);
+        $output_dfh_server_3 = stream_get_contents($stream_dfh_server_3);
+        
+?>
