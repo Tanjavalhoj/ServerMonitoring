@@ -16,4 +16,12 @@ $server[0]["pass"] = "";
         stream_set_blocking($stream_dfh_server_3, true);
         $output_dfh_server_3 = stream_get_contents($stream_dfh_server_3);
         
+        
+        
+//          echo "<h2>SSH df -ih</h2>";
+//          echo $output_dfih_server_3;
+//          echo "<h2>SSH df -h</h2>";
+//          echo $output_dfh_server_3;
+        
+        
 ?>

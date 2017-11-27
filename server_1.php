@@ -14,4 +14,14 @@ $connection_server_1 = ssh2_connect('', 22);
         $stream_dfh_server_1 = ssh2_exec($connection_server_1, 'df -h');
         stream_set_blocking($stream_dfh_server_1, true);
         $output_dfh_server_1 = stream_get_contents($stream_dfh_server_1);
+        
+//            echo "<h2>SSH df -ih</h2>";
+//            echo $output_dfih_server_1;
+//            echo "<h2>SSH df -h</h2>";
+//            echo $output_dfh_server_1;
+        
+        
+        
+        
+        
 ?>

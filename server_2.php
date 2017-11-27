@@ -15,4 +15,15 @@ $server[0]["pass"] = "";
         $stream_dfh_server_2 = ssh2_exec($connection_server_2, 'df -h');
         stream_set_blocking($stream_dfh_server_2, true);
         $output_dfh_server_2 = stream_get_contents($stream_dfh_server_2);
+        
+//          echo "<h2>SSH df -ih</h2>";
+//          echo $output_dfih_server_2;
+//          echo "<h2>SSH df -h</h2>";
+//          echo $output_dfh_server_2;
+        
+        
+        
+        
+        
+        
 ?>
