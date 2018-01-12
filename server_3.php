@@ -1,12 +1,12 @@
 <?php
 $server[0]["name"] = "CRM Yourpay";
 $server[0]["ip"] = "";
-$server[0]["user"] = "serveradm";
+$server[0]["user"] = "";
 $server[0]["pass"] = "";
 //-------------------------------- Server 3 ------------------------------------
 
     $connection_server_3 = ssh2_connect('', 22);
-    ssh2_auth_password($connection_server_3, 'serveradm', '');
+    ssh2_auth_password($connection_server_3, '', '');
 
     $stream_dfih_server_3 = ssh2_exec($connection_server_3, 'df -ih');
     stream_set_blocking($stream_dfih_server_3, true);
@@ -25,13 +25,14 @@ $server[0]["pass"] = "";
 
 //-------------------------- Sorting --- dfih ----------------------------------
         
-    $explode = explode("\n", $output_dfih_server_3);
-
-    foreach ($explode as $value) {
-
-        // var_dump($value);  
-    }
-//SSH data bliver sorteret, og lavet om til et array
+//    $explode = explode("\n", $output_dfih_server_3);
+//
+//    foreach ($explode as $value) {
+//
+//        // var_dump($value);  
+//    }
+    
+    //SSH data bliver sorteret, og lavet om til et array
     $pattern = "/([\/a-z-0-9]+)[ ]+([0-9\.(A-Z)]+)+[ ]+([0-9\.(A-Z)]+)+[ ]+([0-9\.(A-Z)]+)+[ ]+([0-9%]+)+[ ]+([\/a-z]+)/";
 
     if (preg_match_all($pattern, $output_dfih_server_3, $matches_dfih_server_3)) {
@@ -59,15 +60,15 @@ $server[0]["pass"] = "";
         
 //---------------------------- Db Connection -----------------------------------
         
-$servername = "54.154.31.209";
-$username = "tav";
-$password = "U88lPRF4R6VjyTfk";
-$dbnamee = "tav";
+    $servername = "";
+    $username = "";
+    $password = "";
+    $dbname = "";
 
-$conn = new mysqli($servername, $username, $password, $dbnamee);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}        
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }        
 
 //------------------------ Database --- for --- dfih ---------------------------
 
@@ -94,6 +95,7 @@ if ($conn->connect_error) {
             $count_array_server_3 = count($matches_dfih_server_3[0]);
 
     //  var_dump("count" . $count_array);
+            
             $i_dfih = 0;
             while ($i_dfih < $count_array_server_3) {
 
